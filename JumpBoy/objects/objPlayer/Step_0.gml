@@ -42,7 +42,23 @@ if(place_meeting(x, y + 1, objWall) || place_meeting(x, y - 1, objWall)){
 }
 
 //collision wall
-if(place_meeting(x+hspeed, y, objWall)){
+if(place_meeting(x, y + vspeed, objWall) and place_meeting(x+hspeed, y, objWall)){
+	while(!place_meeting(x, y+sign(vspeed), objWall)){
+		y += sign(vspeed);
+	}
+	vspeed = 0;
+	while(!place_meeting(x+sign(hspeed), y, objWall)){
+		x += sign(hspeed);
+	}
+	if(isExploding == true){
+		hspeed = -initialHorizontalSpeed
+	}
+	else{
+		hspeed = -initialHorizontalSpeed / coefCollision;
+	}
+	initialHorizontalSpeed = 0;
+}
+if(place_meeting(x+hspeed, y, objWall) and !place_meeting(x, y + vspeed, objWall)){
 	while(!place_meeting(x+sign(hspeed), y, objWall)){
 		x += sign(hspeed);
 	}
@@ -110,7 +126,7 @@ else{
 
 vspeed += grav
 //collision wall
-if(place_meeting(x, y + vspeed, objWall)){
+if(place_meeting(x, y + vspeed, objWall) and !place_meeting(x+hspeed, y, objWall)){
 	while(!place_meeting(x, y+sign(vspeed), objWall)){
 		y += sign(vspeed);
 	}
