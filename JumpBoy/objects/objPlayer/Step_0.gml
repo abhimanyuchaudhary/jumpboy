@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var horizontal_input = keyboard_check(key_left) - keyboard_check(key_right)
-var vertical_input = keyboard_check(key_down) - keyboard_check(key_up)
+
 
 if(speed != 0 and !onTopPlatForm){
 	isMoving = true;
