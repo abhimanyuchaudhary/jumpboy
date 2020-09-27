@@ -14,7 +14,7 @@ if(speed == 0){
 
 #region MOUSE MOVEMENT
 initialHorizontalSpeed = 0;
-if(mouse_check_button_pressed(mb_left) and isMoving == false){
+if(mouse_check_button_released(mb_left) and isMoving == false){
 	dis = point_distance(x, y, mouse_x, mouse_y)
 	dir = point_direction(x, y, mouse_x, mouse_y);
 	dis = min(dis, 300)
