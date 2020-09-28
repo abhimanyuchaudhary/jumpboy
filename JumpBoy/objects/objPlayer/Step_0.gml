@@ -60,9 +60,22 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed
 	}
 	else{
+		var ColSide = sign(hspeed)
 		hspeed = -initialHorizontalSpeed;
 		isFalling = true;
 		isJump = false;
+		repeat(4){
+			var xx = x + random_range(-16, 16);
+			var yy = y //+ random_range(12, 18);
+			var obj = instance_create_layer(xx, yy, "DustEffects", objCollisionDust)
+			obj.image_xscale = 1.5;
+			obj.image_yscale = 1.5;
+			obj.side = ColSide+1
+			obj.add_movement = true;
+			obj.delay = 0;
+		}
+
+	
 	}
 	initialHorizontalSpeed = 0;
 }
