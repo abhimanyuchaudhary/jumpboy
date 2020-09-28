@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "847c874a-74a2-4336-9a26-b09a39989d24",
+            "Value": {
+                "id": "7f0b56e8-87cb-4a08-87ea-3b9a5ae6a37c",
+                "resourcePath": "sprites\\spriteTiles\\spriteTiles.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "910af478-dbde-4499-a970-239416da5a50",
             "Value": {
                 "id": "16119e72-2ca0-4950-ad0e-e68a001110fe",
@@ -316,6 +324,14 @@
                 "id": "eeca09cf-2631-48e0-91db-22200823f65e",
                 "resourcePath": "sprites\\sprintMovingPlatform\\sprintMovingPlatform.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d5c28504-f78e-4d00-8adb-e27ed8d8105a",
+            "Value": {
+                "id": "86d75d78-274c-4d13-a3fd-aa4c67280fca",
+                "resourcePath": "tilesets\\tTiles\\tTiles.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
