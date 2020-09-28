@@ -7,6 +7,7 @@ onTopLava = false;
 isMoving = false;
 isExploding = false;
 isFalling = false;
+isJump = false;
 
 max_speed = 12;
 acel = 4;

@@ -24,6 +24,16 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 	y_multiplier = .1;
 	vspeed = vspeed + y_push * y_multiplier;
 	hspeed = hspeed + x_push * x_multiplier;
+	isJump = true;
+		//var xx = x + random_range(-16, 16);
+		//var yy = y + random_range(12, 18);
+		var obj = instance_create_layer(x, y, "DustEffects", objJumpingDust)
+		obj.image_xscale = 1.5;
+		obj.image_yscale = 1.5;
+		obj.add_movement = true;
+		obj.delay = 0;
+	
+
 }
 initialHorizontalSpeed = hspeed;
 #endregion
@@ -50,8 +60,22 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed
 	}
 	else{
+		var ColSide = sign(hspeed)
 		hspeed = -initialHorizontalSpeed;
 		isFalling = true;
+		isJump = false;
+		repeat(4){
+			var xx = x + random_range(-16, 16);
+			var yy = y //+ random_range(12, 18);
+			var obj = instance_create_layer(xx, yy, "DustEffects", objCollisionDust)
+			obj.image_xscale = 1.5;
+			obj.image_yscale = 1.5;
+			obj.side = ColSide+1
+			obj.add_movement = true;
+			obj.delay = 0;
+		}
+
+	
 	}
 	initialHorizontalSpeed = 0;
 }
@@ -64,6 +88,7 @@ if(place_meeting(x+hspeed, y, objMovingPlatform)){
 	hspeed = (sign(objMovingPlatform.hspeed) * abs(speed_gain_after_hitting_moving_platform) + 3*objMovingPlatform.hspeed)
 	initialHorizontalSpeed = hspeed
 	platformHorizontalCollision = true
+	isJump = false;
 }
 
 //collision lava
@@ -79,6 +104,7 @@ if(place_meeting(x+hspeed, y, objLava)){
 	direction = randomDirection
 	initialHorizontalSpeed = speed;
 	isExploding = true;
+	isJump = false;
 }
 
 
@@ -115,14 +141,22 @@ if(place_meeting(x, y + vspeed, objWall)){
 	while(!place_meeting(x, y+sign(vspeed), objWall)){
 		y += sign(vspeed);
 	}
-	if(vspeed > grav){
-		repeat(4){
-		var xx = x + random_range(-16, 16);
-		var yy = y + random_range(12, 18);
-		var obj = instance_create_layer(xx, yy, "DustEffects", objFallingDust)
+	if(vspeed > grav and !isFalling){
+		//var xx = x + random_range(-16, 16);
+		//var yy = y + random_range(12, 18);
+		var obj = instance_create_layer(x, y+25, "DustEffects", objLandingDust)
+		obj.image_xscale = 2;
+		obj.image_yscale = 2;
 		obj.add_movement = true;
 		obj.delay = 0;
-		}
+		isJump = false;
+	}
+	else if(isFalling){
+		var obj = instance_create_layer(x, y, "DustEffects", objJumpingDust)
+		obj.image_xscale = 0.8;
+		obj.image_yscale = 0.8;
+		obj.add_movement = true;
+		obj.delay = 0;
 	}
 	vspeed = 0;
 
@@ -130,6 +164,7 @@ if(place_meeting(x, y + vspeed, objWall)){
 		bounce = 0;
 		hspeed = 0;
 		isFalling = false;
+		isJump = false;
 	}
 	if(isFalling){
 		hspeed = hspeed/coefCollision;
