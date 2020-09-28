@@ -22,3 +22,5 @@ speed_gain_after_hitting_moving_platform = 7;
 speed_gain_afteR_explosion = 1;
 
 bounce = 0;
+
+state = states.jumping

@@ -335,6 +335,14 @@
             }
         },
         {
+            "Key": "e05e1733-cebc-4509-b71b-92f71dcfe762",
+            "Value": {
+                "id": "68244156-c070-4d40-a90b-37b22b2a6456",
+                "resourcePath": "sprites\\spriteFallingDust\\spriteFallingDust.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
             "Value": {
                 "id": "0b40481a-5c14-4129-abfd-ed595d8130c8",
@@ -356,6 +364,14 @@
                 "id": "79b9b523-0824-42d9-85b2-438da63572ae",
                 "resourcePath": "options\\xboxone\\options_xboxone.yy",
                 "resourceType": "GMXBoxOneOptions"
+            }
+        },
+        {
+            "Key": "f9649ec4-8f82-417d-8dcc-a2a6dcaca8a1",
+            "Value": {
+                "id": "5e8f23fa-fa6e-4407-b607-eccec95e9ae5",
+                "resourcePath": "objects\\objFallingDust\\objFallingDust.yy",
+                "resourceType": "GMObject"
             }
         },
         {

@@ -115,7 +115,17 @@ if(place_meeting(x, y + vspeed, objWall)){
 	while(!place_meeting(x, y+sign(vspeed), objWall)){
 		y += sign(vspeed);
 	}
+	if(vspeed > grav){
+		repeat(4){
+		var xx = x + random_range(-16, 16);
+		var yy = y + random_range(12, 18);
+		var obj = instance_create_layer(xx, yy, "DustEffects", objFallingDust)
+		obj.add_movement = true;
+		obj.delay = 0;
+		}
+	}
 	vspeed = 0;
+
 	if(bounce == 2){
 		bounce = 0;
 		hspeed = 0;
