@@ -2,7 +2,7 @@
     "id": "f9649ec4-8f82-417d-8dcc-a2a6dcaca8a1",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "objFallingDust",
+    "name": "objLandingDust",
     "eventList": [
         {
             "id": "61f98154-1f4b-463f-9bd1-dc9c41e7ec86",

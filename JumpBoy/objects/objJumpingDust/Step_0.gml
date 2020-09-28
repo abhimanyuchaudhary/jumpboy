@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(delay > 0){
+/*if(delay > 0){
 	delay --;
 }
 else{
@@ -13,4 +13,9 @@ else{
 	if(image_xscale <= 0){
 		instance_destroy();
 	}
+}*/
+image_index = int64(index/2)
+if(index == 5*2){
+	instance_destroy();
 }
+index ++;

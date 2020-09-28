@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "15761cf9-b65b-449c-8906-bc1cafe2b619",
+            "Value": {
+                "id": "cbd6c38d-daed-4be2-9df7-5fb5d97fadd3",
+                "resourcePath": "sprites\\spriteJumpingDust\\spriteJumpingDust.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2334f24e-187b-49f5-8d8a-0980a873c415",
             "Value": {
                 "id": "a1aed041-aafd-46b7-b9e7-4296eb4165ad",
@@ -148,6 +156,14 @@
                 "id": "d3f86bd4-28ad-45ce-ad46-b6c2357c7a15",
                 "resourcePath": "views\\5d18886b-f174-455c-8f7f-a4623839f3a4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7309bfef-bcba-4429-bcc4-b776acdc071e",
+            "Value": {
+                "id": "99a5e292-767a-4145-886a-f863f439724f",
+                "resourcePath": "objects\\objJumpingDust\\objJumpingDust.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -338,7 +354,7 @@
             "Key": "e05e1733-cebc-4509-b71b-92f71dcfe762",
             "Value": {
                 "id": "68244156-c070-4d40-a90b-37b22b2a6456",
-                "resourcePath": "sprites\\spriteFallingDust\\spriteFallingDust.yy",
+                "resourcePath": "sprites\\spriteLandingDust\\spriteLandingDust.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -370,7 +386,7 @@
             "Key": "f9649ec4-8f82-417d-8dcc-a2a6dcaca8a1",
             "Value": {
                 "id": "5e8f23fa-fa6e-4407-b607-eccec95e9ae5",
-                "resourcePath": "objects\\objFallingDust\\objFallingDust.yy",
+                "resourcePath": "objects\\objLandingDust\\objLandingDust.yy",
                 "resourceType": "GMObject"
             }
         },
