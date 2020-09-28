@@ -30,7 +30,7 @@ initialHorizontalSpeed = hspeed;
 #region HORIZONTAL MOVEMENT
 horizontal_speed = hspeed;
 //friction
-if(place_meeting(x, y + 1, objWall) || place_meeting(x, y - 1, objWall)){
+/*if(place_meeting(x, y + 1, objWall) || place_meeting(x, y - 1, objWall)){
 	if(hspeed > decel){
 		hspeed -= decel;
 	}else if(hspeed < - decel){
@@ -39,7 +39,7 @@ if(place_meeting(x, y + 1, objWall) || place_meeting(x, y - 1, objWall)){
 		hspeed = 0;
 		initialHorizontalSpeed = 0;
 	}
-}
+}*/
 
 //collision wall
 if(place_meeting(x+hspeed, y, objWall)){
@@ -50,7 +50,8 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed
 	}
 	else{
-		hspeed = -initialHorizontalSpeed / coefCollision;
+		hspeed = -initialHorizontalSpeed;
+		isFalling = true;
 	}
 	initialHorizontalSpeed = 0;
 }
@@ -115,6 +116,19 @@ if(place_meeting(x, y + vspeed, objWall)){
 		y += sign(vspeed);
 	}
 	vspeed = 0;
+	if(bounce == 2){
+		bounce = 0;
+		hspeed = 0;
+		isFalling = false;
+	}
+	if(isFalling){
+		hspeed = hspeed/coefCollision;
+		vspeed = -15;
+		bounce ++;
+	}
+	else{
+		hspeed = 0;
+	}
 }
 //collision platform
 if(place_meeting(x, y + vspeed, objMovingPlatform)){
