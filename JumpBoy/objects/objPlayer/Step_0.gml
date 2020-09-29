@@ -53,6 +53,7 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed;
 		isFalling = true;
 	}
+	
 	initialHorizontalSpeed = 0;
 }
 //collision platform
@@ -114,6 +115,12 @@ vspeed += grav
 if(place_meeting(x, y + vspeed, objWall)){
 	while(!place_meeting(x, y+sign(vspeed), objWall)){
 		y += sign(vspeed);
+		if(sign(vspeed)==-1){
+			vspeed=0;
+			hspeed=0;
+			isFalling=false;
+			break;
+		}
 	}
 	if(vspeed > grav){
 		repeat(4){
@@ -124,17 +131,35 @@ if(place_meeting(x, y + vspeed, objWall)){
 		obj.delay = 0;
 		}
 	}
+	
 	vspeed = 0;
-
-	if(bounce == 2){
+	if(abs(hspeed)<=5 && hspeed!=0){
+		if(bounce == 1){
 		bounce = 0;
 		hspeed = 0;
 		isFalling = false;
+		}
+	}else if(abs(hspeed)<=12 && abs(hspeed)>5){
+		if(bounce == 2){
+			bounce = 1;
+			hspeed = 0;
+			isFalling = false;
+		}
+	}else if(abs(hspeed)>12){
+		if(bounce == 3){
+			bounce = 1;
+			hspeed = 0;
+			isFalling = false;
+		}
 	}
 	if(isFalling){
 		hspeed = hspeed/coefCollision;
-		vspeed = -15;
+		vspeed = -12/(bounce+1);
 		bounce ++;
+		if(bounce>3){
+			bounce=0;
+			isFalling = false;
+		}
 	}
 	else{
 		hspeed = 0;

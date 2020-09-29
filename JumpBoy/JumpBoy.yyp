@@ -343,6 +343,14 @@
             }
         },
         {
+            "Key": "e3cda196-4b44-4416-bb43-f3682c79adc9",
+            "Value": {
+                "id": "5f595ef4-65ff-4872-a46e-f8ac1b1bcf43",
+                "resourcePath": "objects\\speedTracker\\speedTracker.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
             "Value": {
                 "id": "0b40481a-5c14-4129-abfd-ed595d8130c8",
