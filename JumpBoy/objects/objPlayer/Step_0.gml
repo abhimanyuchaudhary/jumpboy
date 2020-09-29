@@ -140,6 +140,12 @@ vspeed += grav
 if(place_meeting(x, y + vspeed, objWall)){
 	while(!place_meeting(x, y+sign(vspeed), objWall)){
 		y += sign(vspeed);
+		if(sign(vspeed)==-1){
+			vspeed=0;
+			hspeed=0;
+			isFalling=false;
+			break;
+		}
 	}
 	if(vspeed > grav and !isFalling){
 		//var xx = x + random_range(-16, 16);
@@ -160,16 +166,33 @@ if(place_meeting(x, y + vspeed, objWall)){
 	}
 	vspeed = 0;
 
-	if(bounce == 2){
+	if(abs(hspeed)<=5 && hspeed!=0){
+		if(bounce == 1){
 		bounce = 0;
 		hspeed = 0;
 		isFalling = false;
-		isJump = false;
+		}
+	}else if(abs(hspeed)<=12 && abs(hspeed)>5){
+		if(bounce == 2){
+			bounce = 1;
+			hspeed = 0;
+			isFalling = false;
+		}
+	}else if(abs(hspeed)>12){
+		if(bounce == 3){
+			bounce = 1;
+			hspeed = 0;
+			isFalling = false;
+		}
 	}
 	if(isFalling){
 		hspeed = hspeed/coefCollision;
-		vspeed = -15;
+		vspeed = -15/(bounce + 1);
 		bounce ++;
+		if(bounce>3){
+			bounce=0;
+			isFalling = false;
+		}
 	}
 	else{
 		hspeed = 0;
