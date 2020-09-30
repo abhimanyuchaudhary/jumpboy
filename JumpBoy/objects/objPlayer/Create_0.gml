@@ -9,6 +9,8 @@ isExploding = false;
 isFalling = false;
 isJump = false;
 
+playerStartPosition = objPlayer.y
+
 max_speed = 12;
 acel = 4;
 decel = 100;
