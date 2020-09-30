@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "755d708d-6278-4070-95bd-0e2b34d58ae1",
+            "Value": {
+                "id": "6e2c3d22-05df-40a8-936c-0bdb6b87e4ba",
+                "resourcePath": "objects\\objHeight\\objHeight.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "75ac291e-7061-4bcb-8e8a-3b3545332d41",
             "Value": {
                 "id": "9ef431f8-3586-4e8e-9cb7-9a716be8a0c3",
