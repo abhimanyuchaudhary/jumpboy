@@ -3,3 +3,6 @@
 
 //item ease in 
 score = abs(objPlayer.y - objPlayer.playerStartPosition) div 15
+if(score > highScore){
+	highScore = score;
+}
