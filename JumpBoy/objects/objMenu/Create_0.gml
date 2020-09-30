@@ -5,8 +5,8 @@ gui_height = display_get_gui_height();
 gui_margin = 32;
 
 menu_x = gui_width; //+ 200;
-menu_y = gui_height - gui_margin;
-menu_x_target = gui_width/2 - gui_margin
+menu_y = gui_height/2;
+menu_x_target = gui_width/2
 menu_speed = 25;
 menu_font = fMenu;
 menu_itemheight = font_get_size(fMenu);
