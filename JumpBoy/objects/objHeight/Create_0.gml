@@ -6,3 +6,5 @@ gui_margin = 32;
 
 menu_x = gui_margin;
 menu_y = 2*gui_margin;
+
+highScore = 0;
