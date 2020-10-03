@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "14234adb-e7b6-4766-bd97-e66dc1dac5eb",
+            "Value": {
+                "id": "01fddc9a-7603-4c4f-899a-e6c30095a719",
+                "resourcePath": "objects\\objLevelSelector\\objLevelSelector.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "150e0c7c-2601-4794-9916-20094e197e6f",
             "Value": {
                 "id": "8549c4e4-d813-4597-a550-b9d20a131711",
@@ -164,6 +172,22 @@
                 "id": "8c5a250d-ed7c-4f57-9215-3ab46d6f1051",
                 "resourcePath": "sprites\\spriteCollisionDust\\spriteCollisionDust.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4e559824-0c73-4539-8c34-48b0dbe286b3",
+            "Value": {
+                "id": "a3cfd6e0-5618-49a9-b866-a3150022c72a",
+                "resourcePath": "rooms\\rmGame3\\rmGame3.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "54148191-ddcc-403c-998d-84ea654bdfeb",
+            "Value": {
+                "id": "5b3a825e-44a4-437b-abf4-1eb17ca9f2a7",
+                "resourcePath": "rooms\\rmLevelSelector\\rmLevelSelector.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -303,6 +327,14 @@
             }
         },
         {
+            "Key": "adfcc37b-910a-409f-9c71-07006a60f985",
+            "Value": {
+                "id": "dc8b50ee-6a4a-4ac1-b76d-a78af1b01197",
+                "resourcePath": "rooms\\rmGame1\\rmGame1.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "ae240ff5-3c7c-448b-9ae6-79f34a13a0ab",
             "Value": {
                 "id": "a5117c05-b5e7-4a95-81fe-937dbcb0f159",
@@ -348,6 +380,14 @@
                 "id": "3378aa8b-f9fd-4966-962c-a8e79c8f4056",
                 "resourcePath": "sprites\\spritePlayer\\spritePlayer.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "cc0bad1f-ae1d-4051-be40-d453c08c6489",
+            "Value": {
+                "id": "68ee3488-7c83-4462-8e59-ce054bd91007",
+                "resourcePath": "rooms\\rmGame2\\rmGame2.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
