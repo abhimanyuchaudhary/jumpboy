@@ -13,9 +13,12 @@ if(menu_control)
 		menu_cursor = (menu_y - mouse_y_gui) div (menu_itemheight * 1.5)
 	}
 	if(mouse_check_button_pressed(mb_left)){
-		menu_x_target = gui_width + 200;
+
 		menu_commited = menu_cursor;
-		menu_control = false;
+	}
+	if(menu_commited >= menu_items - level_available){
+			menu_x_target = gui_width + 200;
+			menu_control = false;
 	}
 }
 
@@ -23,7 +26,13 @@ if(menu_x > gui_width + 150 and (menu_commited != -1)){
 	if(menu_commited == 0){
 		game_end()
 	}
-	else if(menu_commited == 1){
-		room_goto_next()
+	else{
+		if(menu_commited < menu_items - level_available){
+			//do nothing
+		}
+		else{
+			var level_index = menu_items - menu_commited -1
+			room_goto(first_room_position + level_index)
+		}
 	}
 }
