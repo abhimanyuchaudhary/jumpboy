@@ -83,7 +83,7 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed
 	}
 	else{
-		var ColSide = sign(hspeed)
+		var ColSide = sign(hspeed);
 		hspeed = -initialHorizontalSpeed;
 		isFalling = true;
 		isJump = false;
@@ -93,15 +93,26 @@ if(place_meeting(x+hspeed, y, objWall)){
 			var obj = instance_create_layer(xx, yy, "DustEffects", objCollisionDust)
 			obj.image_xscale = 1.5;
 			obj.image_yscale = 1.5;
-			obj.side = ColSide+1
+			obj.side = ColSide+1;
 			obj.add_movement = true;
 			obj.delay = 0;
+		}
+		var frameIndex = 0;
+		if(sprite_index == spriteRightFall){
+			frameIndex = image_index;
+			sprite_index = spriteLeftFall;
+			image_index = frameIndex;
+		}else if(sprite_index == spriteLeftFall){
+			frameIndex = image_index;
+			sprite_index = spriteRightFall;
+			image_index = frameIndex;
 		}
 		if(sprite_index == spriteRightJump){
 			sprite_index = spriteRightFall;
 		}else if(sprite_index == spriteLeftJump){
 			sprite_index = spriteLeftFall;
 		}
+		
 	}
 	
 	initialHorizontalSpeed = 0;
