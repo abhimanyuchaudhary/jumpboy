@@ -91,7 +91,7 @@ if(place_meeting(x+hspeed, y, objWall)){
 			obj.delay = 0;
 		}
 		if(sprite_index == spriteRightJump){
-		sprite_index = spriteLeftJump;
+			sprite_index = spriteLeftJump;
 		}else if(sprite_index == spriteLeftJump){
 			sprite_index = spriteRightJump;
 		}
@@ -192,7 +192,6 @@ if(place_meeting(x, y + vspeed, objWall)){
 	vspeed = 0;
 	if(abs(hspeed)<0.5){
 		bounce = 0;
-		hspeed = 0;
 		vspeed = 0;
 		isFalling = false;
 	}else if(abs(hspeed)<=5 && abs(hspeed)>=0.5){
@@ -223,13 +222,13 @@ if(place_meeting(x, y + vspeed, objWall)){
 			isFalling = false;
 		}
 	}
-	if(sprite_index == spriteRightJump){
-			sprite_index = spriteRightIdle;
-		}else if(sprite_index == spriteLeftJump){
-			sprite_index = spriteLeftIdle;
-		}
 	else{
 		hspeed = 0;
+	}
+	if(sprite_index == spriteRightJump){
+			sprite_index = spriteRightIdle;
+	}else if(sprite_index == spriteLeftJump){
+			sprite_index = spriteLeftIdle;
 	}
 }
 //collision platform
