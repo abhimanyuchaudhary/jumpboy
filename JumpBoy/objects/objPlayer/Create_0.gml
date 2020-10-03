@@ -10,7 +10,7 @@ isFalling = false;
 isJump = false;
 
 playerStartPosition = objPlayer.y
-
+sprite_index = spriteRightIdle
 max_speed = 12;
 acel = 4;
 decel = 100;
