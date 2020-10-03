@@ -15,10 +15,17 @@ if(speed == 0){
 #region MOUSE MOVEMENT
 initialHorizontalSpeed = 0;
 if(mouse_check_button(mb_left) && isMoving == false){
+	image_speed = 1;
 	if(objPlayer.x <= mouse_x){
 		sprite_index = spriteRightPreJump;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
 	}else if(objPlayer.x > mouse_x){
 		sprite_index = spriteLeftPreJump;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
 	}
 }
 if(mouse_check_button_released(mb_left) and isMoving == false){
@@ -91,9 +98,9 @@ if(place_meeting(x+hspeed, y, objWall)){
 			obj.delay = 0;
 		}
 		if(sprite_index == spriteRightJump){
-			sprite_index = spriteLeftJump;
+			sprite_index = spriteRightFall;
 		}else if(sprite_index == spriteLeftJump){
-			sprite_index = spriteRightJump;
+			sprite_index = spriteLeftFall;
 		}
 	}
 	
@@ -129,7 +136,6 @@ if(place_meeting(x+hspeed, y, objLava)){
 
 
 #endregion
-
 
 #region VERTICAL MOVEMENT
 //collision wall
@@ -176,11 +182,6 @@ if(place_meeting(x, y + vspeed, objWall)){
 		obj.add_movement = true;
 		obj.delay = 0;
 		isJump = false;
-		if(sprite_index == spriteRightJump){
-			sprite_index = spriteRightIdle;
-		}else if(sprite_index == spriteLeftJump){
-			sprite_index = spriteLeftIdle;
-		}
 	}
 	else if(isFalling){
 		var obj = instance_create_layer(x, y, "DustEffects", objJumpingDust)
@@ -188,6 +189,17 @@ if(place_meeting(x, y + vspeed, objWall)){
 		obj.image_yscale = 0.8;
 		obj.add_movement = true;
 		obj.delay = 0;
+	}
+	if(sprite_index == spriteRightJump){
+		sprite_index = spriteRightIdle;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
+	}else if(sprite_index == spriteLeftJump){
+		sprite_index = spriteLeftIdle;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
 	}
 	vspeed = 0;
 	if(abs(hspeed)<0.5){
@@ -224,12 +236,19 @@ if(place_meeting(x, y + vspeed, objWall)){
 	}
 	else{
 		hspeed = 0;
-	}
-	if(sprite_index == spriteRightJump){
+		if(sprite_index == spriteRightFall){
 			sprite_index = spriteRightIdle;
-	}else if(sprite_index == spriteLeftJump){
+			while(place_meeting(x, y, objWall)){
+				y += -1;
+			}
+		}else if(sprite_index == spriteLeftFall){
 			sprite_index = spriteLeftIdle;
+			while(place_meeting(x, y, objWall)){
+				y += -1;
+			}
+		}
 	}
+	
 }
 //collision platform
 if(place_meeting(x, y + vspeed, objMovingPlatform)){
@@ -257,3 +276,9 @@ if(place_meeting(x, y + vspeed, objLava)){
 }
 
 #endregion
+if(isFalling && (sprite_index == spriteRightFall || sprite_index == spriteLeftFall)){
+	if(image_index == image_number - 1){
+		image_speed = 0;
+		image_index = image_number - 1;
+	}
+}
