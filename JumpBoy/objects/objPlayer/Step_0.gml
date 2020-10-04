@@ -14,6 +14,20 @@ if(speed == 0){
 
 #region MOUSE MOVEMENT
 initialHorizontalSpeed = 0;
+if(mouse_check_button(mb_left) && isMoving == false){
+	image_speed = 1;
+	if(objPlayer.x <= mouse_x){
+		sprite_index = spriteRightPreJump;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
+	}else if(objPlayer.x > mouse_x){
+		sprite_index = spriteLeftPreJump;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
+	}
+}
 if(mouse_check_button_released(mb_left) and isMoving == false){
 	dis = point_distance(x, y, mouse_x, mouse_y)
 	dir = point_direction(x, y, mouse_x, mouse_y);
@@ -32,11 +46,20 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 		obj.image_yscale = 1.5;
 		obj.add_movement = true;
 		obj.delay = 0;
-	
-
+	if(sign(hspeed)==1){
+		sprite_index = spriteRightJump;
+	}else if(sign(hspeed)==-1){
+		sprite_index = spriteLeftJump;
+	}
 }
+
+
+
+
 initialHorizontalSpeed = hspeed;
+
 #endregion
+
 #region HORIZONTAL MOVEMENT
 horizontal_speed = hspeed;
 //friction
@@ -60,7 +83,7 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed
 	}
 	else{
-		var ColSide = sign(hspeed)
+		var ColSide = sign(hspeed);
 		hspeed = -initialHorizontalSpeed;
 		isFalling = true;
 		isJump = false;
@@ -70,13 +93,28 @@ if(place_meeting(x+hspeed, y, objWall)){
 			var obj = instance_create_layer(xx, yy, "DustEffects", objCollisionDust)
 			obj.image_xscale = 1.5;
 			obj.image_yscale = 1.5;
-			obj.side = ColSide+1
+			obj.side = ColSide+1;
 			obj.add_movement = true;
 			obj.delay = 0;
 		}
-
-	
+		var frameIndex = 0;
+		if(sprite_index == spriteRightFall){
+			frameIndex = image_index;
+			sprite_index = spriteLeftFall;
+			image_index = frameIndex;
+		}else if(sprite_index == spriteLeftFall){
+			frameIndex = image_index;
+			sprite_index = spriteRightFall;
+			image_index = frameIndex;
+		}
+		if(sprite_index == spriteRightJump){
+			sprite_index = spriteRightFall;
+		}else if(sprite_index == spriteLeftJump){
+			sprite_index = spriteLeftFall;
+		}
+		
 	}
+	
 	initialHorizontalSpeed = 0;
 }
 //collision platform
@@ -109,7 +147,6 @@ if(place_meeting(x+hspeed, y, objLava)){
 
 
 #endregion
-
 
 #region VERTICAL MOVEMENT
 //collision wall
@@ -164,21 +201,35 @@ if(place_meeting(x, y + vspeed, objWall)){
 		obj.add_movement = true;
 		obj.delay = 0;
 	}
+	if(sprite_index == spriteRightJump){
+		sprite_index = spriteRightIdle;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
+	}else if(sprite_index == spriteLeftJump){
+		sprite_index = spriteLeftIdle;
+		while(place_meeting(x, y, objWall)){
+			y += -1;
+		}
+	}
 	vspeed = 0;
-
-	if(abs(hspeed)<=5 && hspeed!=0){
+	if(abs(hspeed)<0.5){
+		bounce = 0;
+		vspeed = 0;
+		isFalling = false;
+	}else if(abs(hspeed)<=5 && abs(hspeed)>=0.5){
 		if(bounce == 1){
 		bounce = 0;
 		hspeed = 0;
 		isFalling = false;
 		}
-	}else if(abs(hspeed)<=12 && abs(hspeed)>5){
+	}else if(abs(hspeed)<=16 && abs(hspeed)>5){
 		if(bounce == 2){
 			bounce = 1;
 			hspeed = 0;
 			isFalling = false;
 		}
-	}else if(abs(hspeed)>12){
+	}else if(abs(hspeed)>16){
 		if(bounce == 3){
 			bounce = 1;
 			hspeed = 0;
@@ -196,7 +247,19 @@ if(place_meeting(x, y + vspeed, objWall)){
 	}
 	else{
 		hspeed = 0;
+		if(sprite_index == spriteRightFall){
+			sprite_index = spriteRightIdle;
+			while(place_meeting(x, y, objWall)){
+				y += -1;
+			}
+		}else if(sprite_index == spriteLeftFall){
+			sprite_index = spriteLeftIdle;
+			while(place_meeting(x, y, objWall)){
+				y += -1;
+			}
+		}
 	}
+	
 }
 //collision platform
 if(place_meeting(x, y + vspeed, objMovingPlatform)){
@@ -224,3 +287,9 @@ if(place_meeting(x, y + vspeed, objLava)){
 }
 
 #endregion
+if(isFalling && (sprite_index == spriteRightFall || sprite_index == spriteLeftFall)){
+	if(image_index == image_number - 1){
+		image_speed = 0;
+		image_index = image_number - 1;
+	}
+}
