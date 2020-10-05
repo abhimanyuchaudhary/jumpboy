@@ -31,10 +31,10 @@ if(mouse_check_button(mb_left) && isMoving == false){
 if(mouse_check_button_released(mb_left) and isMoving == false){
 	dis = point_distance(x, y, mouse_x, mouse_y)
 	dir = point_direction(x, y, mouse_x, mouse_y);
-	dis = min(dis, 300)
+	dis = min(dis, 350)
 	x_push = lengthdir_x(dis, dir);
 	y_push = lengthdir_y(dis, dir);
-	x_multiplier = .1;
+	x_multiplier = .1
 	y_multiplier = .1;
 	vspeed = vspeed + y_push * y_multiplier;
 	hspeed = hspeed + x_push * x_multiplier;
