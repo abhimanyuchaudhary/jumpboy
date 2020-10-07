@@ -18,13 +18,13 @@ if(mouse_check_button(mb_left) && isMoving == false){
 	image_speed = 1;
 	if(objPlayer.x <= mouse_x){
 		sprite_index = spriteRightPreJump;
-		while(place_meeting(x, y, objWall)){
-			y += -1;
+		while(place_meeting(x,y,objWall)){
+			y = y-1;
 		}
 	}else if(objPlayer.x > mouse_x){
 		sprite_index = spriteLeftPreJump;
-		while(place_meeting(x, y, objWall)){
-			y += -1;
+		while(place_meeting(x,y,objWall)){
+			y = y-1;
 		}
 	}
 }
@@ -48,8 +48,14 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 		obj.delay = 0;
 	if(sign(hspeed)==1){
 		sprite_index = spriteRightJump;
+		while(place_meeting(x,y,objWall)){
+			x+=sign(hspeed);
+		}
 	}else if(sign(hspeed)==-1){
 		sprite_index = spriteLeftJump;
+		while(place_meeting(x,y,objWall)){
+			x+=sign(hspeed);
+		}
 	}
 }
 
@@ -109,8 +115,15 @@ if(place_meeting(x+hspeed, y, objWall)){
 		}
 		if(sprite_index == spriteRightJump){
 			sprite_index = spriteRightFall;
+			while(place_meeting(x,y,objWall)){
+				x+=sign(hspeed);
+			}
+			
 		}else if(sprite_index == spriteLeftJump){
 			sprite_index = spriteLeftFall;
+			while(place_meeting(x,y,objWall)){
+				x+=sign(hspeed);
+			}
 		}
 		
 	}
@@ -181,7 +194,10 @@ if(place_meeting(x, y + vspeed, objWall)){
 			vspeed=0;
 			hspeed=0;
 			isFalling=false;
+			onTopWall=false;
 			break;
+		}else{
+			onTopWall=true;
 		}
 	}
 	if(vspeed > grav and !isFalling){
@@ -202,15 +218,19 @@ if(place_meeting(x, y + vspeed, objWall)){
 		obj.delay = 0;
 	}
 	if(sprite_index == spriteRightJump){
+		sprite_index = spriteLeftJump;
+		while(place_meeting(x,y,objWall)){
+			x+=sign(hspeed);
+		}
 		sprite_index = spriteRightIdle;
-		while(place_meeting(x, y, objWall)){
-			y += -1;
-		}
+		
 	}else if(sprite_index == spriteLeftJump){
-		sprite_index = spriteLeftIdle;
-		while(place_meeting(x, y, objWall)){
-			y += -1;
+		sprite_index = spriteLeftJump;
+		while(place_meeting(x,y,objWall)){
+			x+=sign(hspeed);
 		}
+		sprite_index = spriteLeftIdle;
+		
 	}
 	vspeed = 0;
 	if(abs(hspeed)<0.5){
@@ -249,15 +269,16 @@ if(place_meeting(x, y + vspeed, objWall)){
 		hspeed = 0;
 		if(sprite_index == spriteRightFall){
 			sprite_index = spriteRightIdle;
-			while(place_meeting(x, y, objWall)){
-				y += -1;
+			while(place_meeting(x,y,objWall)){
+				if(onTopWall) y = y-1;
 			}
 		}else if(sprite_index == spriteLeftFall){
-			sprite_index = spriteLeftIdle;
-			while(place_meeting(x, y, objWall)){
-				y += -1;
+			sprite_index = spriteLeftIdle;		
+			while(place_meeting(x,y,objWall)){
+				if(onTopWall) y = y-1;
 			}
 		}
+		
 	}
 	
 }
