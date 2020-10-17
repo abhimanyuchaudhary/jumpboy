@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "4549042b-2ec9-47e5-9175-aab7df625c92",
+            "Value": {
+                "id": "9f3b2fb6-6870-45dd-963a-817b80004311",
+                "resourcePath": "scripts\\add_dust_effects\\add_dust_effects.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "457ffe69-0eeb-4e40-8f13-b13d7b91d8f6",
             "Value": {
                 "id": "2482b013-14c5-4e8e-986f-f83dc125446b",
@@ -544,7 +552,7 @@
         }
     ],
     "script_order": [
-        
+        "4549042b-2ec9-47e5-9175-aab7df625c92"
     ],
     "tutorial": ""
 }

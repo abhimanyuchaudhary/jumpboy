@@ -39,13 +39,7 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 	vspeed = vspeed + y_push * y_multiplier;
 	hspeed = hspeed + x_push * x_multiplier;
 	isJump = true;
-		//var xx = x + random_range(-16, 16);
-		//var yy = y + random_range(12, 18);
-		var obj = instance_create_layer(x, y, "DustEffects", objJumpingDust)
-		obj.image_xscale = 1.5;
-		obj.image_yscale = 1.5;
-		obj.add_movement = true;
-		obj.delay = 0;
+	add_dust_effects(objPlayer, objJumpingDust, 1.5, 0, 0)
 	if(sign(hspeed)==1){
 		sprite_index = spriteRightJump;
 	}else if(sign(hspeed)==-1){
@@ -87,15 +81,8 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed;
 		isFalling = true;
 		isJump = false;
-		repeat(4){
-			var xx = x + random_range(-16, 16);
-			var yy = y //+ random_range(12, 18);
-			var obj = instance_create_layer(xx, yy, "DustEffects", objCollisionDust)
-			obj.image_xscale = 1.5;
-			obj.image_yscale = 1.5;
-			obj.side = ColSide+1;
-			obj.add_movement = true;
-			obj.delay = 0;
+		repeat(2){
+			add_dust_effects(objPlayer, objCollisionDust, 1.5, ColSide*(25), 0)
 		}
 		var frameIndex = 0;
 		if(sprite_index == spriteRightFall){
@@ -185,21 +172,11 @@ if(place_meeting(x, y + vspeed, objWall)){
 		}
 	}
 	if(vspeed > grav and !isFalling){
-		//var xx = x + random_range(-16, 16);
-		//var yy = y + random_range(12, 18);
-		var obj = instance_create_layer(x, y+25, "DustEffects", objLandingDust)
-		obj.image_xscale = 2;
-		obj.image_yscale = 2;
-		obj.add_movement = true;
-		obj.delay = 0;
+		add_dust_effects(objPlayer, objLandingDust, 2, 0, 22)
 		isJump = false;
 	}
 	else if(isFalling){
-		var obj = instance_create_layer(x, y, "DustEffects", objJumpingDust)
-		obj.image_xscale = 0.8;
-		obj.image_yscale = 0.8;
-		obj.add_movement = true;
-		obj.delay = 0;
+		add_dust_effects(objPlayer, objLandingDust, 0.8, 0, 0)
 	}
 	if(sprite_index == spriteRightJump){
 		sprite_index = spriteRightIdle;
