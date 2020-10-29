@@ -5,7 +5,7 @@ if(place_meeting(x, y + vspeed, objWall)){
 	if(sign(vspeed)==-1){
 		//hspeed = 0
 		vspeed=0;
-		isFalling=false;
+		//isFalling=false;
 		return
 	}
 	//Landing cases
