@@ -1,6 +1,26 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if(place_meeting(x, y, objWall)){
+	for(var index = 0; index < 1000; index++){
+		if(!place_meeting(x+index, y, objWall)){
+			objPlayer.x = x+index
+			break;
+		}
+		if(!place_meeting(x-index, y, objWall)){
+			objPlayer.x = x-index
+			break;
+		}
+		if(!place_meeting(x, y+index, objWall)){
+			objPlayer.y = y+index
+			break;
+		}
+		if(!place_meeting(x, y-index, objWall)){
+			objPlayer.y = y-index
+			break;
+		}
+	}
+}
 
 if(speed != 0 and !onTopPlatForm){
 	isMoving = true;
