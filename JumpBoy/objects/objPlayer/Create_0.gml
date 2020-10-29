@@ -26,4 +26,5 @@ speed_gain_afteR_explosion = 1;
 
 bounce = 0;
 
-state = states.jumping
+currState = states.standing
+prevState = states.standing

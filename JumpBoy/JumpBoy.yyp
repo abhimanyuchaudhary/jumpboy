@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "0957a323-f25a-4fd8-8361-e297fc89aa36",
+            "Value": {
+                "id": "ebe384f1-4054-4dd1-8616-3d8dd51dae55",
+                "resourcePath": "scripts\\check_wall_collision_horizontal\\check_wall_collision_horizontal.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "135f0867-6252-4e52-8f2a-c91c27f9c08e",
             "Value": {
                 "id": "0e84e367-9b3c-46c3-862a-036ed1a6980b",
@@ -116,6 +124,22 @@
                 "id": "85d67954-2a33-43fd-9d05-1810451b4a53",
                 "resourcePath": "rooms\\rmMenu\\rmMenu.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "30f60dd2-77a5-44a8-b7d6-4c9b8bbf0d96",
+            "Value": {
+                "id": "3d3f6a04-b9c8-40a7-9aa9-99b8f49f652b",
+                "resourcePath": "scripts\\check_platform_collision_horizontal\\check_platform_collision_horizontal.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "36170c2e-6107-458c-acf0-3918a103a75d",
+            "Value": {
+                "id": "eae85f98-7f62-43ce-8540-5619960ccde6",
+                "resourcePath": "scripts\\check_lava_collision_horizontal\\check_lava_collision_horizontal.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -223,6 +247,14 @@
             }
         },
         {
+            "Key": "6f994874-a9b7-44ea-b658-24f6943b0353",
+            "Value": {
+                "id": "97733f2f-c1c3-49ce-8068-1ab9a980f8dc",
+                "resourcePath": "scripts\\check_wall_collision_vertical\\check_wall_collision_vertical.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7309bfef-bcba-4429-bcc4-b776acdc071e",
             "Value": {
                 "id": "99a5e292-767a-4145-886a-f863f439724f",
@@ -284,6 +316,14 @@
                 "id": "acc6aa10-57f4-454b-8138-b331dc3e7136",
                 "resourcePath": "options\\ios\\options_ios.yy",
                 "resourceType": "GMiOSOptions"
+            }
+        },
+        {
+            "Key": "84426dbd-7992-424c-861e-dfcc1af9db00",
+            "Value": {
+                "id": "f35d6d3e-581f-4435-9e00-f47a57d8eeb2",
+                "resourcePath": "scripts\\check_lava_collision_vertical\\check_lava_collision_vertical.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -356,6 +396,14 @@
                 "id": "1790e7d3-1286-4766-a0f2-7d99b812b234",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "aa858e17-6fae-4e68-a83e-550a92a46dd0",
+            "Value": {
+                "id": "aefe26e9-c772-4c8f-a830-5726ba627f85",
+                "resourcePath": "scripts\\check_platform_collision_vertical\\check_platform_collision_vertical.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -552,7 +600,13 @@
         }
     ],
     "script_order": [
-        "4549042b-2ec9-47e5-9175-aab7df625c92"
+        "4549042b-2ec9-47e5-9175-aab7df625c92",
+        "0957a323-f25a-4fd8-8361-e297fc89aa36",
+        "30f60dd2-77a5-44a8-b7d6-4c9b8bbf0d96",
+        "36170c2e-6107-458c-acf0-3918a103a75d",
+        "6f994874-a9b7-44ea-b658-24f6943b0353",
+        "aa858e17-6fae-4e68-a83e-550a92a46dd0",
+        "84426dbd-7992-424c-861e-dfcc1af9db00"
     ],
     "tutorial": ""
 }
