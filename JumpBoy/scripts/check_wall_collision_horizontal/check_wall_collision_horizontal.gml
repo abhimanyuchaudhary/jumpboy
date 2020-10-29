@@ -20,28 +20,34 @@ if(place_meeting(x+hspeed, y, objWall)){
 		hspeed = -initialHorizontalSpeed
 	}
 	else{
-		var ColSide = sign(hspeed);
-		hspeed = -initialHorizontalSpeed;
-		isFalling = true;
-		isJump = false;
-		repeat(2){
-			add_dust_effects(objPlayer, objCollisionDust, 1.5, ColSide*(25), 0)
+		if(abs(hspeed) > 0){ //actually falling
+			var ColSide = sign(hspeed);
+			hspeed = -initialHorizontalSpeed;
+			isFalling = true;
+			isJump = false;
+			repeat(2){
+				add_dust_effects(objPlayer, objCollisionDust, 1.5, ColSide*(25), 0)
+			}
+			var frameIndex = 0;
+			if(sprite_index == spriteRightFall){
+				frameIndex = image_index;
+				sprite_index = spriteLeftFall;
+				image_index = frameIndex;
+			}else if(sprite_index == spriteLeftFall){
+				frameIndex = image_index;
+				sprite_index = spriteRightFall;
+				image_index = frameIndex;
+			}
+			if(sprite_index == spriteRightJump){
+				sprite_index = spriteRightFall;
+			}else if(sprite_index == spriteLeftJump){
+				sprite_index = spriteLeftFall;
+			}			
 		}
-		var frameIndex = 0;
-		if(sprite_index == spriteRightFall){
-			frameIndex = image_index;
-			sprite_index = spriteLeftFall;
-			image_index = frameIndex;
-		}else if(sprite_index == spriteLeftFall){
-			frameIndex = image_index;
-			sprite_index = spriteRightFall;
-			image_index = frameIndex;
+		else{
+			//Normal Landing
 		}
-		if(sprite_index == spriteRightJump){
-			sprite_index = spriteRightFall;
-		}else if(sprite_index == spriteLeftJump){
-			sprite_index = spriteLeftFall;
-		}
+
 		
 	}
 	
