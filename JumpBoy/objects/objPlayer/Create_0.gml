@@ -2,10 +2,7 @@
 // You can write your code in this editor
 
 onTopWall = true;
-onTopPlatForm = false;
-onTopLava = false;
 isMoving = false;
-isExploding = false;
 isFalling = false;
 isJump = false;
 
@@ -21,10 +18,9 @@ grav = 1;
 vertical_speed = 0;
 horizontal_speed = 0;
 
-speed_gain_after_hitting_moving_platform = 7;
-speed_gain_afteR_explosion = 1;
-
 bounce = 0;
 
 currState = states.standing
 prevState = states.standing
+vsp = 0;
+hsp = 0;

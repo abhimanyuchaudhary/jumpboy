@@ -19,17 +19,34 @@ if(place_meeting(x, y, objWall)){
 			objPlayer.y = y-index
 			break;
 		}
+		if(!place_meeting(x+index, y+index, objWall)){
+			objPlayer.x = x+index
+			objPlayer.y = y+index
+			break;
+		}
+		if(!place_meeting(x+index, y-index, objWall)){
+			objPlayer.x = x+index
+			objPlayer.y = y-index
+			break;
+		}
+		if(!place_meeting(x-index, y+index, objWall)){
+			objPlayer.x = x-index
+			objPlayer.y = y+index
+			break;
+		}
+		if(!place_meeting(x-index, y-index, objWall)){
+			objPlayer.x = x-index
+			objPlayer.y = y-index
+			break;
+		}
 	}
 }
 
-if(speed != 0 and !onTopPlatForm){
+if(hsp != 0 or vsp!=0){
 	isMoving = true;
 }
 else{
 	isMoving = false;
-}
-if(speed == 0){
-	isExploding = false;
 }
 
 #region MOUSE MOVEMENT
@@ -56,8 +73,8 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 	y_push = lengthdir_y(dis, dir);
 	x_multiplier = .1
 	y_multiplier = .1;
-	vspeed = vspeed + y_push * y_multiplier;
-	hspeed = hspeed + x_push * x_multiplier;
+	vsp = vsp + y_push * y_multiplier;
+	hsp = hsp + x_push * x_multiplier;
 	isJump = true;
 	add_dust_effects(objPlayer, objJumpingDust, 1.5, 0, 0)
 	if(sign(hspeed)==1){
@@ -67,21 +84,16 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 	}
 }
 
+y = y + vsp;
+x = x + hsp;
 
-
-
-initialHorizontalSpeed = hspeed;
+initialHorizontalSpeed = hsp;
 
 #endregion
 
 #region HORIZONTAL MOVEMENT
 //collision wall
 check_wall_collision_horizontal()
-//collision platform
-check_platform_collision_horizontal()
-
-//collision lava
-check_lava_collision_horizontal()
 
 
 #endregion
@@ -95,28 +107,11 @@ if(instanceWall != noone){
 else{
 	onTopWall = false
 }
-var instanceMovingPlatform = instance_place(x, y + 1, objMovingPlatform)
-if(instanceMovingPlatform != noone){
-		onTopPlatForm = true
-}
-else{
-	onTopPlatForm = false
-}
-var instanceLava = instance_place(x, y + 1, objLava)
-if(instanceLava != noone){
-		onTopLava = true
-}
-else{
-	onTopLava = false
-}
 
-vspeed += grav
+
+vsp += grav
 //collision wall
 check_wall_collision_vertical()
-//collision platform
-check_platform_collision_vertical()
-//collision lava
-check_lava_collision_vertical()
 
 #endregion
 if(isFalling && (sprite_index == spriteRightFall || sprite_index == spriteLeftFall)){

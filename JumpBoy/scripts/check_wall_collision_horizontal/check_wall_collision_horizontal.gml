@@ -1,4 +1,4 @@
-horizontal_speed = hspeed;
+horizontal_speed = hsp;
 //friction
 /*if(place_meeting(x, y + 1, objWall) || place_meeting(x, y - 1, objWall)){
 	if(hspeed > decel){
@@ -12,44 +12,41 @@ horizontal_speed = hspeed;
 }*/
 
 //collision wall
-if(place_meeting(x+hspeed, y, objWall)){
-	while(!place_meeting(x+sign(hspeed), y, objWall)){
-		x += sign(hspeed);
+if(place_meeting(x+hsp, y, objWall)){
+	while(!place_meeting(x+sign(hsp), y, objWall)){
+		x += sign(hsp);
 	}
-	if(isExploding == true){
-		hspeed = -initialHorizontalSpeed
-	}
-	else{
-		if(abs(hspeed) > 0){ //actually falling
-			var ColSide = sign(hspeed);
-			hspeed = -initialHorizontalSpeed;
-			isFalling = true;
-			isJump = false;
-			repeat(2){
-				add_dust_effects(objPlayer, objCollisionDust, 1.5, ColSide*(25), 0)
-			}
-			var frameIndex = 0;
-			if(sprite_index == spriteRightFall){
-				frameIndex = image_index;
-				sprite_index = spriteLeftFall;
-				image_index = frameIndex;
-			}else if(sprite_index == spriteLeftFall){
-				frameIndex = image_index;
-				sprite_index = spriteRightFall;
-				image_index = frameIndex;
-			}
-			if(sprite_index == spriteRightJump){
-				sprite_index = spriteRightFall;
-			}else if(sprite_index == spriteLeftJump){
-				sprite_index = spriteLeftFall;
-			}			
+
+	if(abs(hsp) > 0){ //actually falling
+		var ColSide = sign(hsp);
+		hsp = -horizontal_speed;
+		isFalling = true;
+		isJump = false;
+		repeat(2){
+			add_dust_effects(objPlayer, objCollisionDust, 1.5, ColSide*(25), 0)
 		}
-		else{
-			//Normal Landing
+		var frameIndex = 0;
+		if(sprite_index == spriteRightFall){
+			frameIndex = image_index;
+			sprite_index = spriteLeftFall;
+			image_index = frameIndex;
+		}else if(sprite_index == spriteLeftFall){
+			frameIndex = image_index;
+			sprite_index = spriteRightFall;
+			image_index = frameIndex;
+		}
+		if(sprite_index == spriteRightJump){
+			sprite_index = spriteRightFall;
+		}else if(sprite_index == spriteLeftJump){
+			sprite_index = spriteLeftFall;
 		}
 
-		
 	}
+	else{
+		//Normal Landing
+	}
+
+	show_debug_message("Horizontal");
 	
 	initialHorizontalSpeed = 0;
 }
