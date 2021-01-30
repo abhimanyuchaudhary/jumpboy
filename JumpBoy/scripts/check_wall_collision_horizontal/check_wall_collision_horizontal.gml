@@ -25,6 +25,7 @@ if(place_meeting(x+hsp, y, objWall)){
 		repeat(2){
 			add_dust_effects(objPlayer, objCollisionDust, 1.5, ColSide*(25), 0)
 		}
+		audio_play_sound(collision, 0,0)
 		var frameIndex = 0;
 		if(sprite_index == spriteRightFall){
 			frameIndex = image_index;
