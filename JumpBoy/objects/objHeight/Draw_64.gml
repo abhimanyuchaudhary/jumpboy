@@ -7,7 +7,7 @@ draw_set_font(fMenu);
 	var offset = 2;
 	var scoreText = score
 	var highScoreText = highScore
-	scoreText = string_insert("Score: ", objPlayer.vspeed, 0)
+	scoreText = string_insert("Score: ", scoreText, 0)
 	highScoreText = string_insert("Record: ", highScoreText, 0)
 	var col = c_white
 	var xx = menu_x;

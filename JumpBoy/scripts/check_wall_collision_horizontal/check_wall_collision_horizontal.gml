@@ -37,10 +37,11 @@ if(place_meeting(x+hsp, y, objWall)){
 		}
 		if(sprite_index == spriteRightJump){
 			sprite_index = spriteRightFall;
+			remove_from_inside_wall(objPlayer, objWall)
 		}else if(sprite_index == spriteLeftJump){
 			sprite_index = spriteLeftFall;
+			remove_from_inside_wall(objPlayer, objWall)
 		}
-
 	}
 	else{
 		//Normal Landing

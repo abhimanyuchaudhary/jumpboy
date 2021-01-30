@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-if(place_meeting(x, y, objWall)){
+remove_from_inside_wall(objPlayer, objWall)
+/*if(place_meeting(x, y, objWall)){
 	for(var index = 0; index < 1000; index++){
 		if(!place_meeting(x+index, y, objWall)){
 			objPlayer.x = x+index
@@ -40,7 +40,7 @@ if(place_meeting(x, y, objWall)){
 			break;
 		}
 	}
-}
+}*/
 
 if(hsp != 0 or vsp!=0){
 	isMoving = true;
@@ -77,9 +77,9 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 	hsp = hsp + x_push * x_multiplier;
 	isJump = true;
 	add_dust_effects(objPlayer, objJumpingDust, 1.5, 0, 0)
-	if(sign(hspeed)==1){
+	if(sign(hsp)==1){
 		sprite_index = spriteRightJump;
-	}else if(sign(hspeed)==-1){
+	}else if(sign(hsp)==-1){
 		sprite_index = spriteLeftJump;
 	}
 }
