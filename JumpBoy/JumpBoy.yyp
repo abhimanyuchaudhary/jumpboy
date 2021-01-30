@@ -263,6 +263,14 @@
             }
         },
         {
+            "Key": "6a2aff0d-d908-46c1-9977-8c614c1b04ed",
+            "Value": {
+                "id": "bb6c6722-abaf-4900-befc-d41146eb5c02",
+                "resourcePath": "sounds\\land\\land.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "6f994874-a9b7-44ea-b658-24f6943b0353",
             "Value": {
                 "id": "97733f2f-c1c3-49ce-8068-1ab9a980f8dc",
@@ -359,6 +367,14 @@
             }
         },
         {
+            "Key": "8f341d1a-a040-48c3-9092-f5f9d68206a8",
+            "Value": {
+                "id": "66a04002-34e0-4efa-a496-413af4abda39",
+                "resourcePath": "sounds\\bounceSound\\bounceSound.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "8fd9bfea-d43a-49b8-8885-b39a8e8347df",
             "Value": {
                 "id": "37fe78ab-d68b-46aa-9b1d-9b3bdd8ca314",
@@ -404,6 +420,14 @@
                 "id": "c387ed31-d3e5-4865-b6ff-76a1fefd8ac4",
                 "resourcePath": "options\\amazonfire\\options_amazonfire.yy",
                 "resourceType": "GMAmazonFireOptions"
+            }
+        },
+        {
+            "Key": "a32e066f-e68c-4159-9736-ebd5fec571b6",
+            "Value": {
+                "id": "2c77fda9-f446-494c-9fa6-a12d901a6c61",
+                "resourcePath": "sounds\\jump\\jump.yy",
+                "resourceType": "GMSound"
             }
         },
         {

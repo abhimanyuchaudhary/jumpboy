@@ -19,8 +19,10 @@ if(place_meeting(x, y + vsp, objWall)){
 	
 	
 	if(sprite_index == spriteRightJump){
+		audio_play_sound(land,0,0)
 		sprite_index = spriteRightIdle;
 	}else if(sprite_index == spriteLeftJump){
+		audio_play_sound(land,0,0)
 		sprite_index = spriteLeftIdle;
 	}
 	vsp = 0;
@@ -34,6 +36,7 @@ if(place_meeting(x, y + vsp, objWall)){
 			bounce=0;
 			isFalling = false;
 		}
+		audio_play_sound(bounceSound,0,0)
 		
 	}
 	else{

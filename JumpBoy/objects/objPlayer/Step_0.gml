@@ -88,6 +88,7 @@ if(mouse_check_button_released(mb_left) and isMoving == false){
 	}else if(sign(hsp)==-1){
 		sprite_index = spriteLeftJump;
 	}
+	audio_play_sound(jump, 0, 0)
 }
 
 y = y + vsp;
