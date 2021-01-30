@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //item ease in 
-menu_x += (menu_x_target - menu_x) / menu_speed;
+menu_x = (menu_x_target);
 
 //beyboard controls
 if(menu_control)
