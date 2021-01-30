@@ -1,5 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
+/*if(image_speed ==0 and sprite_index == spriteRightRecover){
+	//sprite_index = spriteRightIdle
+}
+if(image_speed ==0 and sprite_index == spriteLeftRecover){
+	//sprite_index = spriteLeftIdle
+}*/
 remove_from_inside_wall(objPlayer, objWall)
 /*if(place_meeting(x, y, objWall)){
 	for(var index = 0; index < 1000; index++){
