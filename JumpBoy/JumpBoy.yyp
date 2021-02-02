@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "28335cb9-916d-4995-b7e1-cbecbc9b34e7",
+            "Value": {
+                "id": "d9905c95-83ff-460e-bf0e-f83c4e097ced",
+                "resourcePath": "rooms\\rmGame2\\rmGame2.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "2ad0d057-2b18-47ff-b3f1-d227075d9bd8",
             "Value": {
                 "id": "0016d9fb-d9b0-44f1-8d79-8f46baf745da",
@@ -212,14 +220,6 @@
                 "id": "8c5a250d-ed7c-4f57-9215-3ab46d6f1051",
                 "resourcePath": "sprites\\spriteCollisionDust\\spriteCollisionDust.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "4e559824-0c73-4539-8c34-48b0dbe286b3",
-            "Value": {
-                "id": "a3cfd6e0-5618-49a9-b866-a3150022c72a",
-                "resourcePath": "rooms\\rmGame3\\rmGame3.yy",
-                "resourceType": "GMRoom"
             }
         },
         {
@@ -463,14 +463,6 @@
             }
         },
         {
-            "Key": "adfcc37b-910a-409f-9c71-07006a60f985",
-            "Value": {
-                "id": "dc8b50ee-6a4a-4ac1-b76d-a78af1b01197",
-                "resourcePath": "rooms\\rmGame1\\rmGame1.yy",
-                "resourceType": "GMRoom"
-            }
-        },
-        {
             "Key": "ae240ff5-3c7c-448b-9ae6-79f34a13a0ab",
             "Value": {
                 "id": "a5117c05-b5e7-4a95-81fe-937dbcb0f159",
@@ -524,14 +516,6 @@
                 "id": "b8010a31-9af1-4fe5-a3c8-14d30b8c8db0",
                 "resourcePath": "sprites\\spriteRightJump\\spriteRightJump.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "cc0bad1f-ae1d-4051-be40-d453c08c6489",
-            "Value": {
-                "id": "68ee3488-7c83-4462-8e59-ce054bd91007",
-                "resourcePath": "rooms\\rmGame2\\rmGame2.yy",
-                "resourceType": "GMRoom"
             }
         },
         {
@@ -612,6 +596,22 @@
                 "id": "67f175f2-d815-45dd-9b99-7a0cdf205c75",
                 "resourcePath": "sprites\\spriteLeftRecover\\spriteLeftRecover.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ec211abf-a89a-41a3-bc03-b396b0ef810d",
+            "Value": {
+                "id": "20b53b56-7557-44d7-a822-c483d7e9e3cd",
+                "resourcePath": "rooms\\rmGame3\\rmGame3.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "f00829b4-7eab-42de-b0f2-26094d34c99c",
+            "Value": {
+                "id": "dcfde389-7429-43dd-b53b-36042d2aedfe",
+                "resourcePath": "rooms\\rmGame1\\rmGame1.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
